@@ -77,23 +77,3 @@ exports.deleteTodo = (request, response) => {
         });
 };
 
-exports.editTodo = ( request, response ) => { 
-    if(request.body.todoId || request.body.createdAt){
-        response.status(403).json({message: 'Not allowed to edit'});
-    }
-    else{
-        let document = db.collection('todos').doc(`${request.params.todoId}`);
-    document.update(request.body)
-    .then(()=> {
-        return response.json({message: 'Updated successfully'});
-    })
-    .catch((err) => {
-        console.error(err);
-        return response.status(500).json({ 
-                error: err.code 
-        });
-    });
-    }
-    
-    
-};

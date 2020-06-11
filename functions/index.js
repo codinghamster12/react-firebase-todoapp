@@ -8,11 +8,11 @@ const {
     getAllTodos, 
     postOneTodo,
     deleteTodo,
-    editTodo
+ 
 } = require('./APIs/todos')
 
 
-app.put('/todo/:todoId', editTodo);
+
 app.post('/todo', postOneTodo);
 app.get('/todos', getAllTodos);
 app.delete('/todo/:todoId', deleteTodo);
